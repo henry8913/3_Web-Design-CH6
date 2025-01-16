@@ -1,0 +1,440 @@
+// Variabili
+$primary-color: #6f42c1;
+$secondary-color: #fff3cd;
+$icon-color: #f0ad4e;
+$navbar-small-height: 56px;
+
+// Contenitore principale
+.content-wrapper {
+  background-color: #F5F4F9;
+}
+
+// Stile per la sezione Hero
+.hero-section {
+  background-color: $primary-color;
+  color: #fff;
+  padding-top: 2.5rem;
+
+  .text-content {
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+
+      &.btn-success {
+        background-color: #28a745;
+        border: none;
+
+        &:hover {
+          background-color: darken(#28a745, 10%);
+        }
+      }
+
+      &.btn-outline-light {
+        border-color: #fff;
+        color: #fff;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  .image-content {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: -2rem;
+    }
+  }
+}
+
+// Stile per la sezione Features
+.features-section {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    gap: 1rem;
+
+    .icon {
+      background-color: $secondary-color;
+      border-radius: 50%;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+
+      i {
+        color: $icon-color;
+        font-size: 1.5rem;
+
+        @media (max-width: 1024px) {
+          font-size: 1.2rem;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .text {
+      text-align: left;
+
+      h6 {
+        font-weight: 700;
+        margin: 0;
+        font-size: 1rem;
+
+        @media (max-width: 1024px) {
+          font-size: 0.9rem;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 0.8rem;
+        }
+      }
+
+      small {
+        color: #6c757d;
+        font-size: 0.9rem;
+
+        @media (max-width: 1024px) {
+          font-size: 0.8rem;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+// Stile per la sezione Recommended
+.recommended-section {
+  position: relative;
+  padding: 2rem 0;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel {
+    position: relative;
+
+    .carousel-inner {
+      display: flex;
+
+      .row {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .card {
+        border: none;
+
+        .card-body {
+          padding: 1rem;
+
+          .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+
+          .card-text {
+            color: #6c757d;
+            margin-bottom: 1rem;
+          }
+
+          .d-flex {
+            align-items: center;
+
+            img {
+              border-radius: 50%;
+              margin-right: 0.5rem;
+            }
+
+            small {
+              color: #6c757d;
+            }
+          }
+        }
+      }
+    }
+
+    .custom-carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      &:hover {
+        background-color: #f8f9fa;
+        border-color: #bbb;
+
+        i {
+          color: #000;
+        }
+      }
+    }
+
+    .carousel-control-prev {
+      left: 1rem;
+    }
+
+    .carousel-control-next {
+      right: 1rem;
+    }
+  }
+}
+
+// Media Queries Globali
+
+// Nascondi la navbar large sotto 1024px
+@media (max-width: 1024px) {
+  .navbar-large {
+    display: none !important;
+  }
+}
+
+// Navbar small - aggiusta il margine del contenuto
+@media (max-width: 1024px) {
+  .navbar-small {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+  }
+
+  .content-wrapper {
+    padding-top: $navbar-small-height;
+  }
+}
+
+// Nascondi la navbar small sopra 1024px
+@media (min-width: 1025px) {
+  .navbar-small {
+    display: none !important;
+  }
+}
+
+// Stili aggiuntivi per schermi piccoli
+@media (max-width: 576px) {
+  .card-body {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+
+    h5.card-title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.card-text {
+      font-size: 0.75rem;
+    }
+
+    .d-flex i {
+      font-size: 0.8rem;
+    }
+
+    .d-flex small {
+      font-size: 0.7rem;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .bi-bookmark,
+    .bi-bookmark-fill {
+      font-size: 0.8rem;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 10;
+  }
+
+  .carousel-control-prev {
+    left: 0.8rem;
+  }
+
+  .carousel-control-next {
+    right: 0.8rem;
+  }
+
+  .carousel-control-prev i,
+  .carousel-control-next i {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+// Stile per la sezione Hero
+.hero-section {
+  background-color: $primary-color;
+  color: #fff;
+  padding-top: 3rem;
+
+  .text-content {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 2.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+
+      @media (min-width: 768px) {
+        font-size: 1.25rem; // Per tablet
+      }
+    }
+
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+    }
+  }
+
+  .image-content {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+
+      @media (min-width: 768px) and (max-width: 1024px){
+        max-width: 90%;
+      }
+    }
+  }
+}
+
+// Stile per il Footer
+.footer {
+  background-color: #f5f4f9;
+  padding: 2rem 1rem;
+
+  hr {
+    margin: 1.5rem auto;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #6c757d;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+
+    a {
+      font-size: 0.9rem;
+      color: #6c757d;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
