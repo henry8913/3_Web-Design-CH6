@@ -216,9 +216,132 @@ color: #fff;
     }
 }
 
+/* _____________________________________________________________________________ features-section ____________________ */
 
+/* Contenitore della card */
+.hover-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    z-index: 1;
+}
 
+/* Effetto al passaggio del mouse */
+.hover-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
 
-  
-  
-  
+/* Corpo della card */
+.card-body {
+    margin: 1rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Contenuto predefinito */
+.default-content {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Contenuto espanso */
+.expanded-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Al passaggio del mouse: gestisce i contenuti */
+.hover-card:hover .default-content {
+    display: none;
+    opacity: 0;
+}
+
+.hover-card:hover .expanded-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Stile per l'immagine nella card */
+.card-img-top {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    object-fit: cover;
+    object-position: center;
+    opacity: 1;
+}
+
+/* Immagine che appare al passaggio del mouse */
+.hover-card::before {
+    content: '';
+    background: url('../img/logo.svg') no-repeat center top;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+}
+
+/* Stile per schermi più piccoli */
+@media (max-width: 1024px) {
+    .hover-card::before {
+        height: 20%;
+    }
+}
+
+/* Effetto al passaggio del mouse */
+.hover-card:hover .card-img-top {
+    opacity: 0;
+}
+
+.hover-card:hover::before {
+    opacity: 1;
+}
+
+/* _____________________________________________________________________________ scorrimento ____________________ */
+
+/* Contenitore scrollabile */
+.scrollable-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem; /* Spaziatura tra le card */
+    padding: 1rem 0; /* Margini per il contenitore */
+    scroll-snap-type: x mandatory; /* Scroll snap per un'esperienza più fluida */
+}
+
+/* Ogni card all'interno del contenitore */
+.scrollable-container > .col-6 {
+    scroll-snap-align: start; /* Allinea la card con il bordo del contenitore */
+    flex: 0 0 auto; /* Mantiene le card in fila orizzontale */
+    width: calc(100% / 2 - 0.5rem); /* Larghezza per due card per riga */
+}
+
+/* Stile per desktop (adatta a più card visibili contemporaneamente) */
+@media (min-width: 768px) {
+    .scrollable-container > .col-6 {
+        width: calc(100% / 3 - 1rem); /* Tre card visibili contemporaneamente */
+    }
+}
+
+@media (min-width: 1024px) {
+    .scrollable-container > .col-6 {
+        width: calc(100% / 4 - 1rem); /* Quattro card visibili contemporaneamente */
+    }
+}
+
+/* Nascondi la scrollbar su dispositivi mobili */
+.scrollable-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollable-container {
+    -ms-overflow-style: none; /* Per IE e Edge */
+    scrollbar-width: none; /* Per Firefox */
+}
