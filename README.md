@@ -2,7 +2,7 @@
 
 Il **Web Design** è la combinazione di creatività e tecnologie per creare esperienze digitali visivamente accattivanti e funzionali. Esploreremo i concetti fondamentali e le tecniche avanzate per progettare siti web moderni, responsivi e accessibili.
 
-![Cover](https://github.com/henry8913/3_Web-Design-CH5/blob/main/img/cover.jpg)
+![Cover](https://github.com/henry8913/3_Web-Design-CH6/blob/main/img/cover.gif)
 
 ### Argomenti trattati:
 - **Principi di Web Design**: Teorie di colore, tipografia, e layout.
